@@ -10,23 +10,33 @@ export default class Comment extends Component {
     }
 
     render() {
-        const {comments} = this.props
+        const {comment} = this.props
         const {isOpen} = this.state
 
-        console.log('===', {comments} );
+        console.log({comment})
 
         return(
             <div>
-                {this.getBody()}
+                <div>
+                    <button onClick = {this.toggleOpen}>Open Comments</button>
+                </div>
+                <div>
+                    {this.getBody()}
+                </div>
             </div>
         )
     }
 
     getBody() {
-        // if ( !{comments} ) return null
+        const {comment} = this.props
 
-        const {comments} = this.props
 
-        return {comments}
+        return
+    }
+
+    toggleOpen = () => {
+        this.setState({
+            isOpen: !this.state.isOpen
+        })
     }
 }
